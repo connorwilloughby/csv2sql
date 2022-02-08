@@ -9,6 +9,8 @@ import pandas as pd
 # TODO: remove double quote col hack
 # TODO: create a sql safe col lookup
 # TODO: create a csv lookup from the above transformation 
+# TODO: create documentation
+# TODO: convert to cmd function 
 # ======================================================================================
 
 # find files in dir
