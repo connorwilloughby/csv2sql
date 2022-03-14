@@ -1,4 +1,3 @@
 # csv2sql
  
-
-update me pls 
+Just a small module build to convert a directory of csv targets to a psql create script! 

@@ -1,4 +1,5 @@
 import os 
+import re
 from tqdm import tqdm 
 import numpy as np
 import pandas as pd
@@ -11,6 +12,7 @@ import pandas as pd
 # TODO: create a csv lookup from the above transformation 
 # TODO: create documentation
 # TODO: convert to cmd function 
+# TODO: performance bump by only pulling headers?
 # ======================================================================================
 
 # find files in dir
@@ -75,7 +77,7 @@ def get_sheets(path, mode):
 				comma_t = ''
 				
 			# cleaned entries
-			column_name = '"' + str(row[0])  + '"'
+			column_name = clean_column_name(row[0])
 			sql_d_type = clean_datatype(row[1])
 			newline = ' \n'
 
@@ -88,6 +90,26 @@ def get_sheets(path, mode):
 		total_sql = total_sql + table_sql + ') ; \n\n'
 
 	return total_sql
+
+def clean_column_name(name):
+
+	# replace space w/ underscores
+	name = name.lower()
+
+	# rm leading spaces
+	name = re.sub(r'(^[0-9]*)', '', name)
+
+	# replace symbols
+	# TODO: Check replace_symbols part of code
+	# description:  in clean_column_name() 
+	name = re.sub(r'[^\w]', ' ', name)
+
+	# replace space w/ underscores
+	name = re.sub(r'(\s)', '_', name)
+
+	# TODO: Stop literal strings in clean_column_name() 
+	# description: Once confident with this function we should stop returning as a string literal
+	return '"' + str(name)  + '"'
 
 # convert np.dtype into a sql dtype as string 
 def clean_datatype(type):
