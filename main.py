@@ -52,7 +52,7 @@ def get_sheets(path, mode):
 
 	total_sql = ''
 	
-	# itterate everything 
+	# iterate everything 
 	for file in tqdm(path): 
 			
 		if mode == 0:
@@ -97,7 +97,7 @@ def clean_column_name(name):
 	name = name.lower()
 
 	# rm leading spaces
-	name = re.sub(r'(^[0-9]*)', '', name)
+	name = re.sub(r'(^\d*)', '', name)
 
 	# replace symbols
 	# TODO: Check replace_symbols part of code
