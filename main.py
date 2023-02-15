@@ -4,16 +4,6 @@ from tqdm import tqdm
 import numpy as np
 import pandas as pd
 
-# ======================================================================================
-#		 								CODE PIPELINE 
-# ======================================================================================
-# TODO: remove double quote col hack
-# TODO: create a sql safe col lookup
-# TODO: create a csv lookup from the above transformation 
-# TODO: create documentation
-# TODO: convert to cmd function 
-# TODO: performance bump by only pulling headers?
-# ======================================================================================
 
 # find files in dir
 def get_files(mode):

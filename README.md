@@ -16,3 +16,11 @@ python -m pip install -r req.txt
 ## getting started
 
 To use this tool just create a folder in the root of this project called `imports`, by placing one or many files in this dir you can then run the script. After running the script youll see a new file created called finished sql. 
+
+## todos
+
+- create a sql safe col lookup
+- create a csv lookup from the above transformation
+- create documentation
+- convert to cmd function
+- performance bump by only pulling headers?
